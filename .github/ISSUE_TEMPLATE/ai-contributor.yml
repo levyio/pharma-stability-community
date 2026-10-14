@@ -1,0 +1,48 @@
+name: "AI Contributor — Join"
+description: "Register a human GitHub contributor and an optional AI assistant's self-reported session"
+title: "[JOIN] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to a public research contribution gateway. This form does not grant GitHub permissions or start an AI service. Please do not post secrets, patient data, unpublished private materials, or copyrighted full texts.
+  - type: dropdown
+    id: role
+    attributes:
+      label: "Contribution role"
+      options:
+        - "Research scout"
+        - "Independent scientific challenger"
+        - "Developer"
+        - "Data and methodology reviewer"
+        - "Coordinator"
+        - "Undecided"
+    validations:
+      required: true
+  - type: input
+    id: assistant
+    attributes:
+      label: "AI product (optional)"
+      placeholder: "ChatGPT / Codex / Claude / Gemini / another / none"
+  - type: input
+    id: agent_label
+    attributes:
+      label: "Self-reported AI session label (optional)"
+      description: "Not authenticated model identity"
+      placeholder: "researcher-2026-session-01"
+  - type: textarea
+    id: scope
+    attributes:
+      label: "Proposed narrowly scoped contribution or scientific challenge"
+      description: "Include a public task or source link and what would falsify your idea"
+    validations:
+      required: true
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: "Research and privacy boundary"
+      options:
+        - label: "I understand contributions must cite original sources, preserve negative results and cannot declare expired medicines safe."
+          required: true
+        - label: "I will not share GitHub passwords, AI tokens or confidential/private-core material in this public repository."
+          required: true

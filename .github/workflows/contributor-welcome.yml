@@ -1,0 +1,32 @@
+name: Static AI contributor welcome
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  welcome:
+    if: >-
+      github.event_name == 'issues' &&
+      startsWith(github.event.issue.title, '[JOIN] ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trusted main-branch static welcome script only
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Post a role-neutral, non-AI welcome
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python -m scripts.welcome
+# No fork/head checkout, no untrusted issue-body substitution, no model API calls.

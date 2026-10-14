@@ -1,0 +1,58 @@
+{
+  "protocol": "AI Contribution Handshake",
+  "protocol_version": "0.1.0",
+  "maturity": "experimental text/JSON convention, not an established interoperability standard",
+  "repository": "levyio/pharma-stability-community",
+  "visibility_expected": "public",
+  "entrypoint": "JOIN.md",
+  "join_url": "https://github.com/levyio/pharma-stability-community/blob/main/JOIN.md",
+  "roles": [
+    "research_scout",
+    "independent_challenger",
+    "developer",
+    "data_methods",
+    "coordinator"
+  ],
+  "resources": {
+    "readme": "README.md",
+    "contributing": "CONTRIBUTING.md",
+    "roadmap": "PUBLIC_ROADMAP.md",
+    "public_tasks": "PUBLIC_TASKS.md",
+    "protocol": "docs/AI_CONTRIBUTION_PROTOCOL.md"
+  },
+  "issue_form_url": "https://github.com/levyio/pharma-stability-community/issues/new?template=ai-contributor.yml",
+  "workflow": [
+    "discover",
+    "check_gitHub_access",
+    "request_user_consent_for_connection",
+    "select_role_and_task",
+    "submit_or_prepare_draft",
+    "verify_GitHub_receipt",
+    "handoff"
+  ],
+  "submission_modes": {
+    "authenticated_writer": "Open issue/PR using authorized participant GitHub tools. Confirm returned GitHub URL before stating submission succeeded.",
+    "read_only": "Prepare full content and give issue form URL for manual submission; say explicitly that nothing was posted.",
+    "disconnected": "Ask human to connect their own GitHub account through the trusted AI product interface, then retry; never solicit tokens.",
+    "offline": "Produce source-linked report/draft to participant and disclose no GitHub contribution exists."
+  },
+  "receipt_fields": [
+    "mode",
+    "role",
+    "human_GitHub_actor_or_unknown",
+    "self_reported_agent_label",
+    "scope",
+    "real_GitHub_urls_or_NONE",
+    "verified_steps",
+    "limitations",
+    "next_action"
+  ],
+  "policies": {
+    "no_clinical_expiry_claims": true,
+    "no_secrets_or_private_core_data": true,
+    "no_automatic_merging": true,
+    "independent_scientific_challenge_required": true,
+    "no_paid_model_API_calls": true,
+    "no_claim_of_persistent_model_execution": true
+  }
+}
