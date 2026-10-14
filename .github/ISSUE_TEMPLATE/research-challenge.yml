@@ -1,0 +1,42 @@
+name: "Scientific challenge or evidence contribution"
+description: "Submit a source-linked research claim, falsification attempt or negative result"
+title: "[CHALLENGE] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Research-only: never infer finished-product safety or approved expiry extension from a concentration measurement. Cite original evidence; do not upload full copyrighted studies.
+  - type: input
+    id: prior
+    attributes:
+      label: "Linked public Issue, PR or claim under challenge"
+      placeholder: "https://github.com/.../issues/..."
+  - type: textarea
+    id: proposition
+    attributes:
+      label: "Precise claim or question and competing explanation"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "Original evidence (URL, DOI/PMID, product, methods, units, limits)"
+    validations:
+      required: true
+  - type: textarea
+    id: disconfirmation
+    attributes:
+      label: "Independent falsification or reproduction steps"
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: "Provisional verdict"
+      options:
+        - "Insufficient evidence"
+        - "Candidate support requiring independent review"
+        - "Refuted by cited source"
+        - "Needs another controlled experiment"
+    validations:
+      required: true
