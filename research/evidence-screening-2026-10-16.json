@@ -1,0 +1,244 @@
+{
+  "schema_version": "0.1.0",
+  "date_screened": "2026-10-16",
+  "scope": "non-exhaustive screening of original stability studies; NOT a validated dataset",
+  "roadmap_issues": [
+    3,
+    4
+  ],
+  "agent_label": "gpt6-independent-eai-challenge-20261016",
+  "actor": "levyio",
+  "unverified_full_text_records": [
+    "rachid2016",
+    "naloxone_nasal2020",
+    "expired_naloxone2022"
+  ],
+  "definitions": {
+    "lot_holdout": "Entire independent manufacturing lots segregated from training; none verified in this screen",
+    "technical_replicate": "Repeat analytical injections/aliquots are not new independent lots",
+    "no_clinical_claims": true
+  },
+  "sources": [
+    {
+      "id": "lai2019",
+      "doi": "10.1186/s12954-019-0288-4",
+      "url": "https://link.springer.com/article/10.1186/s12954-019-0288-4",
+      "product": "Sandoz naloxone hydrochloride injection 0.4 mg/mL, 1 mL ampoule",
+      "brand": "Sandoz",
+      "formulation": "solution for injection",
+      "container": "sealed ampoule",
+      "known_lot_ids": [
+        "GH3080"
+      ],
+      "units_per_arm_timepoint": null,
+      "independence": "single named manufacturing lot; number of physical ampoules per arm/timepoint unconfirmed; HPLC injections are technical repeats",
+      "exposures": [
+        "80 C for 8 h then room temperature for 16 h daily",
+        "-20 C for 16 h then 4 C for 8 h daily",
+        "room-temperature control"
+      ],
+      "timepoints_days_methods": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        14,
+        21,
+        28
+      ],
+      "timepoints_days_figure_caption": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        14,
+        28
+      ],
+      "measured_endpoints": [
+        "naloxone HPLC-UV concentration",
+        "paraben and byproduct chromatography",
+        "precipitate"
+      ],
+      "repeated_time_group_measures": true,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "CC BY 4.0",
+      "underlying_data": "author request; not retrieved",
+      "status": "conditional: one-lot condition-time-series, not multi-lot predictive dataset",
+      "flags": [
+        "methods/figure-caption day-21 discrepancy",
+        "physical sample count unverified"
+      ]
+    },
+    {
+      "id": "wood2024",
+      "doi": "10.1080/22423982.2024.2367273",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11182065/",
+      "product": "expired EpiPen and Jext 0.3 mg adrenaline auto-injectors",
+      "brand": "EpiPen;Jext",
+      "formulation": "finished auto-injector",
+      "container": "auto-injector",
+      "known_lot_ids": [],
+      "units_per_arm_timepoint": 3,
+      "independence": "24 devices total, 12 of each brand; 3 per brand per freeze-thaw-count arm; lot IDs not documented in table",
+      "exposures": [
+        "0,1,5,15 freeze-thaw cycles at -80 C then room temperature"
+      ],
+      "timepoints_days_methods": null,
+      "timepoints_days_figure_caption": null,
+      "measured_endpoints": [
+        "single-use expelled liquid mass",
+        "activation success"
+      ],
+      "repeated_time_group_measures": false,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "verify for any data extraction",
+      "underlying_data": "device-level expelled-mass table published; not transcribed here",
+      "status": "device-performance counterevidence; not chemical potency time series",
+      "flags": [
+        "non-significant difference not equivalence",
+        "no potency, sterility or tissue delivery endpoint"
+      ]
+    },
+    {
+      "id": "rachid2016",
+      "doi": "10.3109/03639045.2015.1035283",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25997362/",
+      "product": "in-date epinephrine auto-injectors; brand/formulation not confirmed from abstract",
+      "brand": null,
+      "formulation": null,
+      "container": "auto-injector",
+      "known_lot_ids": [],
+      "units_per_arm_timepoint": null,
+      "independence": "25 total, per-arm counts and independent lots absent from abstract",
+      "exposures": [
+        "25 C control",
+        "constant or cyclic 70 C for 5 or 10 days"
+      ],
+      "timepoints_days_methods": [
+        5,
+        10
+      ],
+      "timepoints_days_figure_caption": null,
+      "measured_endpoints": [
+        "expelled volume",
+        "epinephrine content of expelled solution by HPLC-UV",
+        "enantiomeric purity"
+      ],
+      "repeated_time_group_measures": false,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "unverified",
+      "underlying_data": "abstract only checked",
+      "status": "thermal endpoint contrasts; no per-device repeated-time series established",
+      "flags": [
+        "full text/lot data needed"
+      ]
+    },
+    {
+      "id": "carr2014",
+      "doi": "10.4212/cjhp.v67i3.1356",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4071081/",
+      "product": "compounded epinephrine 25/50/100 microgram/mL in 5% dextrose infusion bags",
+      "brand": "Hospira source epinephrine; Baxter D5W and bags",
+      "formulation": "diluted infusion solution, not emergency auto-injector",
+      "container": "infusion bag",
+      "known_lot_ids": [
+        "368188E01 (source epinephrine)"
+      ],
+      "units_per_arm_timepoint": 1,
+      "independence": "6 bags; 1 bag per concentration x temperature; repeated aliquots nested within bag",
+      "exposures": [
+        "4 C",
+        "25 C"
+      ],
+      "timepoints_days_methods": null,
+      "timepoints_days_figure_caption": null,
+      "measured_endpoints": [
+        "epinephrine HPLC-UV content",
+        "pH",
+        "appearance"
+      ],
+      "repeated_time_group_measures": true,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "verify for any numerical extraction",
+      "underlying_data": "original full-text figures/tables",
+      "status": "time-course methods example; excluded from finished auto-injector extrapolation",
+      "flags": [
+        "not a finished rescue auto-injector",
+        "serial samples not independent bags"
+      ]
+    },
+    {
+      "id": "naloxone_nasal2020",
+      "doi": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32279692/",
+      "product": "naloxone nasal spray device, exact product and lot need original full text",
+      "brand": null,
+      "formulation": null,
+      "container": "nasal-spray device",
+      "known_lot_ids": [],
+      "units_per_arm_timepoint": null,
+      "independence": "unknown from reviewed abstract",
+      "exposures": [
+        "-29 C",
+        "20 C",
+        "71 C",
+        "10 h exposure"
+      ],
+      "timepoints_days_methods": null,
+      "timepoints_days_figure_caption": null,
+      "measured_endpoints": [
+        "dispensed mass and density-based estimated volume"
+      ],
+      "repeated_time_group_measures": false,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "unverified",
+      "underlying_data": "abstract only checked",
+      "status": "single terminal device endpoint; not potency-time series",
+      "flags": [
+        "does not measure chemical potency as an endpoint in abstract"
+      ]
+    },
+    {
+      "id": "expired_naloxone2022",
+      "doi": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35238012/",
+      "product": "expired nasal spray and injection naloxone; formulations and lot details not confirmed from abstract",
+      "brand": null,
+      "formulation": null,
+      "container": "nasal spray; injection",
+      "known_lot_ids": [],
+      "units_per_arm_timepoint": null,
+      "independence": "expired-stock measurement; repeated measurements per unit not documented in abstract",
+      "exposures": [
+        "room temperature, 6-19 months after labeled expiration"
+      ],
+      "timepoints_days_methods": null,
+      "timepoints_days_figure_caption": null,
+      "measured_endpoints": [
+        "terminal parent naloxone content",
+        "2,2'-bisnaloxone impurity"
+      ],
+      "repeated_time_group_measures": false,
+      "same_closed_unit_repeatedly_measured": false,
+      "independent_lot_holdout_possible": false,
+      "article_license": "unverified",
+      "underlying_data": "abstract only checked",
+      "status": "cross-sectional after expiration; no longitudinal per-device time series confirmed",
+      "flags": [
+        "product-/lot-level methods and data reuse require full-text review"
+      ]
+    }
+  ]
+}
