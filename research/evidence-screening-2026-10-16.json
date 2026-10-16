@@ -100,13 +100,49 @@
       "repeated_time_group_measures": false,
       "same_closed_unit_repeatedly_measured": false,
       "independent_lot_holdout_possible": false,
-      "article_license": "verify for any data extraction",
+      "article_license": "CC BY-NC 4.0 (noncommercial license; commercial reuse requires rights review)",
       "underlying_data": "device-level expelled-mass table published; not transcribed here",
       "status": "device-performance counterevidence; not chemical potency time series",
       "flags": [
         "non-significant difference not equivalence",
-        "no potency, sterility or tissue delivery endpoint"
-      ]
+        "no potency, sterility or tissue delivery endpoint",
+        "expiry dates imbalanced across freeze-thaw arms; cannot isolate freezing from possible age, batch or past storage factors",
+        "Welch ANOVA p: EpiPen 0.15410, Jext 0.20664; ordinary ANOVA p: EpiPen 0.22868, Jext 0.04685; method-sensitive, no equivalence claim",
+        "n=3 devices per brand/arm; observational expiry labels are not manufacturing-lot IDs"
+      ],
+      "reanalysis": {
+        "replication_source": "research/2026-10-16-adversarial-replication-and-data-request.md",
+        "tool": "research/tools/wood_anova.py",
+        "raw_article_table_redistributed": false,
+        "means_by_cycle_g": {
+          "EpiPen": [
+            0.29567,
+            0.30467,
+            0.30533,
+            0.29833
+          ],
+          "Jext": [
+            0.29667,
+            0.32,
+            0.32,
+            0.33333
+          ]
+        },
+        "published_welch_p_by_brand": {
+          "EpiPen": 0.154,
+          "Jext": 0.207
+        },
+        "recomputed_welch_p_by_brand": {
+          "EpiPen": 0.15409596,
+          "Jext": 0.20664383
+        },
+        "sensitivity_ordinary_anova_p": {
+          "EpiPen": 0.22868393,
+          "Jext": 0.04685339
+        },
+        "causal_claim": false,
+        "clinical_claim": false
+      }
     },
     {
       "id": "rachid2016",
@@ -240,5 +276,6 @@
         "product-/lot-level methods and data reuse require full-text review"
       ]
     }
-  ]
+  ],
+  "methods_update": "2026-10-16 independent computation of published aggregate analysis (same agent; not independent author/human replication); open original paper CC BY-NC data not republished"
 }
