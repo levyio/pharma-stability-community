@@ -1,6 +1,7 @@
 """Check public gateway Actions declarations. Does not enforce live branch protection."""
 import json
 import re
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -14,14 +15,39 @@ def workflow(name):
 
 
 class GatewaySecurityTests(unittest.TestCase):
-    def test_third_party_action_refs_are_immutable_sha_pinned(self):
-        for path in WFS.glob("*.yml"):
+    def assert_workflows_are_sha_pinned(self, directory):
+        paths = sorted(
+            path for path in directory.iterdir()
+            if path.is_file() and path.suffix in {".yml", ".yaml"}
+        )
+        self.assertTrue(paths, "No workflow files were scanned")
+        for path in paths:
             doc = path.read_text(encoding="utf-8")
             action_lines = [line for line in doc.splitlines() if re.match(r"^\s*-?\s*uses:\s+", line)]
             self.assertTrue(action_lines, path.name)
             self.assertEqual(len(action_lines), len(PIN.findall(doc)), path.name)
+
+    def test_third_party_action_refs_are_immutable_sha_pinned(self):
+        self.assert_workflows_are_sha_pinned(WFS)
         self.assertIn("11bd71901bbe5b1630ceea73d27597364c9af683", workflow("ci.yml"))
         self.assertIn("a26af69be951a213d495a4c3e4e4022e16d87065", workflow("contributor-welcome.yml"))
+
+    def test_yaml_extension_cannot_bypass_action_pin_check(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workflow_file = Path(tmp) / "malicious.yaml"
+            workflow_file.write_text(
+                "name: adversarial fixture\njobs:\n  test:\n    steps:\n"
+                "      - uses: actions/checkout@v4\n",
+                encoding="utf-8",
+            )
+            with self.assertRaises(AssertionError):
+                self.assert_workflows_are_sha_pinned(Path(tmp))
+            workflow_file.write_text(
+                "name: pinned fixture\njobs:\n  test:\n    steps:\n"
+                "      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683\n",
+                encoding="utf-8",
+            )
+            self.assert_workflows_are_sha_pinned(Path(tmp))
 
     def test_fork_pr_ci_has_readonly_token_no_privileged_events(self):
         doc = workflow("ci.yml")
