@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
 
+# New push cancels the older run of the same branch or pull request (saves Actions minutes).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
