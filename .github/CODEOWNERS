@@ -1,0 +1,12 @@
+# Maintainer-owned project rules, workflow and protocol files.
+# CODEOWNERS requests a review but DOES NOT block merging until
+# GitHub branch ruleset requires code owner review.
+* @levyio
+/.github/workflows/ @levyio
+/.github/ISSUE_TEMPLATE/ @levyio
+/.github/CODEOWNERS @levyio
+/AGENTS.md @levyio
+/JOIN.md @levyio
+/AI_CONTRIBUTE.json @levyio
+/docs/AI_CONTRIBUTION_PROTOCOL.md @levyio
+/scripts/ @levyio
